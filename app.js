@@ -16,6 +16,10 @@ var port = process.env.port || 8080;
 app.set('views', path.join(__dirname, 'app/views'));
 app.set('view engine', 'ejs');
 
+// Serve static assets from public directory
+app.use(express.static('public'));
+
+
 // Configure app to use bodyParser
 // This will let us get data from POST requests
 app.use(bodyParser.urlencoded({ extended: true }));

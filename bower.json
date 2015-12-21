@@ -1,0 +1,25 @@
+{
+  "name": "djrequester",
+  "description": "DJ Requester",
+  "main": "app.js",
+  "authors": [
+    "Stephen McQuaid & Umang Patel"
+  ],
+  "license": "BSD-2-Clause",
+  "homepage": "https://djrequester.com",
+  "moduleType": [
+    "node"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "~3.0.3",
+    "jquery": "~2.1.4"
+  }
+}

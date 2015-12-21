@@ -3,4 +3,8 @@ bower_components/
 .bower_components/
 .env
 
+# Rendered assets
+public/
+
+
 .gitconfig
