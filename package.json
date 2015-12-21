@@ -1,0 +1,19 @@
+{
+  "name": "djrequester",
+  "version": "0.0.0",
+  "description": "DJ Requester",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "gulp test"
+  },
+  "author": "Stephen McQuaid & Umang Patel",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "bower": "~1.7.1"
+  },
+  "dependencies": {
+    "express": "~4.13.3",
+    "nodemon": "~1.8.1"
+  }
+}
