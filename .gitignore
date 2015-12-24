@@ -6,5 +6,8 @@ bower_components/
 # Rendered assets
 public/
 
-
+# git setup
 .gitconfig
+
+# Environment Vars
+*.config.json

@@ -1,7 +1,7 @@
 {
   "name": "djrequester",
   "description": "DJ Requester",
-  "main": "app.js",
+  "main": "server.js",
   "authors": [
     "Stephen McQuaid & Umang Patel"
   ],

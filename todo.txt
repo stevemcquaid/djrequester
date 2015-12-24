@@ -1,0 +1,5 @@
+# Tech Debt
+- db injection attacks
+- change to postgres
+- Docker/server config management (able to rebuild server in one command)
+- install ruby && foreman gem
