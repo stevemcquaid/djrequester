@@ -7,4 +7,12 @@
 - Docker/server config management (able to rebuild server in one command)
 - install ruby && foreman gem
 - Install ZSH / Prezto
-- 
+
+# Features
+- Return Tokens for Auth
+- Setup token handler for Auth
+- Authorization/cancan
+
+# Testing
+- Setup Testing framework
+- Verify model verifications

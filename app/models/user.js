@@ -37,24 +37,24 @@ var UserSchema = new Schema({
 // Apply the uniqueValidator plugin to userSchema.
 UserSchema.plugin(uniqueValidator, { message: '{PATH} already exists. Please choose another.' });
 
-// UserSchema.pre('save', function(next) {
-//   var user = this;
-//   user.password = user.password ? user.password : '';
-// 
-//   if (!user.isModified('password')) return next();
-// 
-//   bcrypt.genSalt(process.env.SALT_WORK_FACTOR, function(err, salt){
-//     
-//     if(err) return next(err);
-// 
-//     bcrypt.hash(user.password, salt, function(err, hash) {
-//       
-//       if(err) return next(err);
-//       user.password = hash;
-//       next();
-// 
-//     });
-//   });
-// });
+UserSchema.pre('save', function(next) {
+  var user = this;
+  user.password = user.password ? user.password : '';
+
+  if (!user.isModified('password')) return next();
+  
+  bcrypt.genSalt(parseInt(process.env.SALT_WORK_FACTOR), function(err, salt){
+    
+    if(err) return next(err);
+
+    bcrypt.hash(user.password, salt, function(err, hash) {
+      
+      if(err) return next(err);
+      user.password = hash;
+      next();
+
+    });
+  });
+});
 
 module.exports = mongoose.model('User', UserSchema);
