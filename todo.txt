@@ -1,5 +1,10 @@
 # Tech Debt
 - db injection attacks
 - change to postgres
+
+
+# Bootstrapping
 - Docker/server config management (able to rebuild server in one command)
 - install ruby && foreman gem
+- Install ZSH / Prezto
+- 

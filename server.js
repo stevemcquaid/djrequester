@@ -1,9 +1,14 @@
 // Call the packages we need
 var express         = require('express'),
     bodyParser      = require('body-parser'),
+    cookieParser    = require('cookie-parser'),
+    session         = require('express-session'),
     path            = require('path'),
+    passport        = require('passport'),
     mongoose        = require('mongoose'),
-    morgan          = require('morgan');
+    morgan          = require('morgan'),
+    expressJwt      = require('express-jwt'),
+    jwt             = require('jsonwebtoken');
 
 // Initialize Express
 var app = express();
@@ -11,7 +16,6 @@ var port = process.env.port || 8080;
 
 // Connect to database
 mongoose.connect(process.env.MONGO_URI);
-
 
 // Get models
 var User = require('./app/models/user');
@@ -23,7 +27,6 @@ app.set('view engine', 'ejs');
 // Serve static assets from public directory
 app.use(express.static('public'));
 
-
 // Configure app to use bodyParser
 // This will let us get data from POST requests
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -34,6 +37,8 @@ app.use(morgan('dev'));
 
 // Setup router
 var publicRouter = express.Router();
+    
+// Setup auth
 
 // Define routes
 publicRouter.route('/')
@@ -49,9 +54,12 @@ publicRouter.route('/users')
     user.email = req.body.email;
     user.password = req.body.password;
     user.phone = req.body.phone;
-
+    
+    console.log(user)
+  
     user.save(function(err) {
       if(err) {
+        console.log(err);
         res.status(422).send(err);
       }
       else {
